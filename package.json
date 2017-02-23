@@ -4,13 +4,11 @@
   "description": "Automatically join Rust when it updates.",
   "main": "index.js",
   "scripts": {
-    "start": "electron .",
-    "build": "electron-packager . MyProject --ignore=node_modules/electron-*"
+    "start": "electron ."
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron-packager": "^8.5.2",
     "electron-prebuilt": "^1.4.13"
   },
   "dependencies": {
