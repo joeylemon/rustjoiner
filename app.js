@@ -2,6 +2,11 @@ var settings = {
 	check_delay: 15
 };
 
+var screenSize = {
+	x: 1920,
+	y: 1040
+};
+
 var lastSelection;
 var descs = new Array();
 
@@ -232,6 +237,7 @@ function checkRustStatus(){
 				
 				opn('steam://connect/' + desc.regip);
 				
+				var checks = 0;
 				var opentask = setInterval(function(){
 					exec('tasklist', function(err, stdout, stderr){
 						var open = stdout.includes("Rust");
@@ -249,6 +255,23 @@ function checkRustStatus(){
 							}, 7000);
 							
 							clearInterval(opentask);
+						}else{
+							checks++;
+							
+							if(checks == 100){
+								$("#last-check").html("Need to press play game?");
+								
+								var click = {
+									x: (screenSize.x / 2) + 274,
+									y: (screenSize.y / 2) + 165
+								};
+								
+								robot.startJar();
+								robot.mouseMove(click.x, click.y).sleep(1000).mouseClick("1").go().then(function(){
+									$("#last-check").html("Clicked play game...");
+									robot.stopJar();
+								});
+							}
 						}
 					});
 				}, 5000);

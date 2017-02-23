@@ -3,15 +3,15 @@ var settings = {
 	height: 320
 };
 
-var {BrowserWindow} = require("electron");
-var {app} = require("electron");
+var electron = require("electron");
+var {app, BrowserWindow} = electron;
 
 var window;
 
 app.on("ready", function(){
 	window = new BrowserWindow({
-	  width: settings.width,
-	  height:  settings.height
+		width: settings.width,
+		height: settings.height
 	});
 	window.loadURL("file://" + __dirname + "/index.html");
 
@@ -20,6 +20,13 @@ app.on("ready", function(){
 	window.setResizable(false);
 	window.focus();
 	window.setPosition(50, 50);
+	
+	/*
+	var contents = window.webContents;
+	var size = electron.screen.getPrimaryDisplay().workAreaSize;
+	console.log(electron.screen.getPrimaryDisplay().workAreaSize);
+	contents.executeJavaScript("setScreenSize(" + size.width + ", " + size.height + ")");
+	*/
 
 	//window.toggleDevTools();
 });
