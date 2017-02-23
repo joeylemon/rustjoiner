@@ -1,0 +1,225 @@
+*::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+@font-face {
+    font-family: bigfont;
+    src: url(styles/Gobold-Bold.ttf);
+}
+
+@font-face {
+    font-family: profont;
+    src: url(styles/Pro-Font.ttf);
+}
+
+@font-face {
+    font-family: roboto;
+    src: url(styles/Roboto-Thin.ttf);
+}
+
+body {
+     background-size: cover;
+	 background-image: url(images/bg.png);
+	 background-attachment: fixed;
+     font-family: profont;
+     font-size: 25px;
+     color: #fff;
+}
+
+
+table {
+	width: 100%;
+}
+
+th {
+	font-size: 30px;
+	user-select: none;
+	opacity: 0.6;
+}
+
+td, th {
+	text-align: left;
+	padding: 4px;
+}
+
+tr:nth-child(even) {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+tr:hover {
+	cursor: pointer;
+	opacity: 0.65;
+}
+
+.debug {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	font-family: profont;
+	font-size: 20px;
+}
+
+.center-container {
+	display: none;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+
+	text-align: center;
+
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+
+	align-items: center;
+	justify-content: center;
+}
+
+.content {
+	position: relative;
+	text-align: center;
+	font-size: 30px;
+	font-family: profont;
+}
+
+.container {
+	position: absolute;
+	width: 367px;
+	height: 195px;
+	text-align: center;
+	overflow: auto;
+	font-size: 20px;
+}
+
+.custom-ip {
+	display: none;
+	z-index: 15;
+	position: fixed;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	height: 65px;
+	text-align: center;
+	font-size: 25px;
+	padding-top: 60px;
+	border-radius: 3px;
+	text-align: center;
+}
+
+.footer {
+	position: fixed;
+	bottom: 15px;
+	left: 0px;
+	display: inline-block;
+	width: 100%;
+}
+
+.field {
+	width: 90%;
+	height: 30px;
+	padding-left: 10px;
+	margin-top: 7px;
+	margin-bottom: 15px;
+	background-color: rgba(0, 0, 0, 0);
+	border: 2px solid #fff;
+	border-radius: 2px;
+	
+	font-family: profont;
+	font-size: 23px;
+	color: #fff;
+}
+
+.button {
+	width: 95%;
+	height: 40px;
+	background-color: rgba(255, 255, 255, 0.2);
+	border: 0px;
+	border-radius: 2px;
+	
+	font-family: bigfont;
+	font-size: 23px;
+	color: #fff;
+	
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+.button:active {
+	opacity: 0.5;
+}
+
+.last-check {
+	display: none;
+	width: 100%;
+	text-align: center;
+	font-size: 15px;
+	font-family: profont;
+}
+
+
+
+.spinner {
+	display: none;
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	font-size: 10px;
+}
+
+.spinner > div {
+	background-color: #fff;
+	height: 100%;
+	width: 6px;
+	display: inline-block;
+
+	-webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+	animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+	-webkit-animation-delay: -1.1s;
+	animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+	-webkit-animation-delay: -1.0s;
+	animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+	-webkit-animation-delay: -0.9s;
+	animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+	-webkit-animation-delay: -0.8s;
+	animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+	0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+	20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+	0%, 40%, 100% { 
+		transform: scaleY(0.4);
+		-webkit-transform: scaleY(0.4);
+	}  20% { 
+		transform: scaleY(1.0);
+		-webkit-transform: scaleY(1.0);
+	}
+}

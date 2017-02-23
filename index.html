@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Rust Joiner</title>
+		<link rel='stylesheet' type='text/css' href='styling.css' />
+	</head>
+	
+	<body>
+		<div id="started" class="center-container">
+			<div>
+				<div id="loader" class="spinner">
+					<div class="rect1"></div>
+					<div class="rect2"></div>
+					<div class="rect3"></div>
+					<div class="rect4"></div>
+					<div class="rect5"></div>
+				</div>
+				
+				<div id="last-check" class="last-check">
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="content" id="content">
+			<div id="table" class="container">
+				<table id="servers" class="servers"></table>
+			</div>
+			<div class="footer">
+				<input class="button" id="start-button" type="submit" value="start">
+			</div>
+		</div>
+		
+		<div id="custom-ip-box" class="custom-ip">
+			<span class="title">Enter the server's address</span>
+			<input class="field" id="custom-ip-field" type="text" placeholder="address">
+		</div>
+	</body>
+	
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script>
+		window.$ = window.jQuery = require('jquery');
+		var servers = require('./servers.js').servers;
+		var request = require("request");
+		var remote = require('electron').remote;
+		var opn = require('opn');
+		var exec = require('child_process').exec;
+		var robot = require("kbm-robot");
+		var SourceQuery = require('sourcequery');
+		require('./app.js');
+	</script>
+</html>

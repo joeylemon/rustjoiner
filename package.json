@@ -1,0 +1,19 @@
+{
+  "name": "proj",
+  "version": "1.0.0",
+  "description": "Automatically join Rust when it updates.",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "jquery": "^3.1.1",
+    "kbm-robot": "0.0.4",
+    "opn": "^4.0.2",
+    "request": "^2.79.0",
+    "sourcequery": "0.0.2"
+  }
+}
