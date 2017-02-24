@@ -249,17 +249,16 @@ function checkRustStatus(){
 								
 								robot.press("enter").sleep(100).release("enter").go().then(function(){
 									$("#last-check").html("Pressed enter...");
-								
 									setTimeout(function(){remote.getCurrentWindow().close();}, 1000);
 								});
-							}, 7000);
+							}, 15000);
 							
 							clearInterval(opentask);
 						}else{
 							checks++;
 							
 							if(checks == 100){
-								$("#last-check").html("Need to press play game?");
+								$("#last-check").html("I probably need to press play game...");
 								
 								var click = {
 									x: (screenSize.x / 2) + 274,
