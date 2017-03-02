@@ -13,7 +13,7 @@ app.on("ready", function(){
 		width: settings.width,
 		height: settings.height
 	});
-	window.loadURL("file://" + __dirname + "/index.html");
+	window.loadURL("file://" + __dirname + "/gui/index.html");
 
 	window.setMaximumSize(settings.width, settings.height);
 	window.setMenuBarVisibility(false);
