@@ -233,47 +233,51 @@ function checkRustStatus(){
 			
 			if(post.title.includes("Devblog") && Date.now() - post.date < 86400000){
 				clearInterval(task);
-				$("#last-check").html("Rust is being opened...");
 				
-				opn('steam://connect/' + desc.regip);
-				
-				var checks = 0;
-				var opentask = setInterval(function(){
-					exec('tasklist', function(err, stdout, stderr){
-						var open = stdout.includes("Rust");
-						if(open){
-							$("#last-check").html("Pressing enter soon...");
-							
-							setTimeout(function(){
-								robot.startJar();
+				$("#last-check").html("Will open Rust in 5 minutes...");
+				setTimeout(function(){
+					$("#last-check").html("Rust is being opened...");
+					
+					opn('steam://connect/' + desc.regip);
+					
+					var checks = 0;
+					var opentask = setInterval(function(){
+						exec('tasklist', function(err, stdout, stderr){
+							var open = stdout.includes("Rust");
+							if(open){
+								$("#last-check").html("Pressing enter soon...");
 								
-								robot.press("enter").sleep(100).release("enter").go().then(function(){
-									$("#last-check").html("Pressed enter...");
-									setTimeout(function(){remote.getCurrentWindow().close();}, 1000);
-								});
-							}, 15000);
-							
-							clearInterval(opentask);
-						}else{
-							checks++;
-							
-							if(checks == 100){
-								$("#last-check").html("I probably need to press play game...");
+								setTimeout(function(){
+									robot.startJar();
+									
+									robot.press("enter").sleep(100).release("enter").go().then(function(){
+										$("#last-check").html("Pressed enter...");
+										setTimeout(function(){remote.getCurrentWindow().close();}, 1000);
+									});
+								}, 25000);
 								
-								var click = {
-									x: (screenSize.x / 2) + 274,
-									y: (screenSize.y / 2) + 165
-								};
+								clearInterval(opentask);
+							}else{
+								checks++;
 								
-								robot.startJar();
-								robot.mouseMove(click.x, click.y).sleep(1000).mouseClick("1").go().then(function(){
-									$("#last-check").html("Clicked play game...");
-									robot.stopJar();
-								});
+								if(checks == 150){
+									$("#last-check").html("I probably need to press play game...");
+									
+									var click = {
+										x: (screenSize.x / 2) + 274,
+										y: (screenSize.y / 2) + 165
+									};
+									
+									robot.startJar();
+									robot.mouseMove(click.x, click.y).sleep(1000).mouseClick("1").go().then(function(){
+										$("#last-check").html("Clicked play game...");
+										robot.stopJar();
+									});
+								}
 							}
-						}
-					});
-				}, 5000);
+						});
+					}, 5000);
+				}, 300000);
 			}else{
 				queryServer(desc.regip, {update: true});
 			}
